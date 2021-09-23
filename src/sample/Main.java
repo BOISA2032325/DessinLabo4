@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -20,22 +21,19 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        primaryStage.setWidth(700);
+        primaryStage.setWidth(1400);
         primaryStage.setHeight(500);
         primaryStage.setTitle("Maison");
-
-        //La maison
         Maison maison1 = new Maison();
-        Group maison= new Group();
+        Group dessin= new Group();
+        Rectangle deuxiemePartieDuDessin = new Rectangle(700,0,700,500);
+        deuxiemePartieDuDessin.setFill(Color.BLACK);
 
-        //Soleil
+
 
         Soleil soleil1 = new Soleil();
-
-        maison.getChildren().addAll(maison1.getMaisonFinal(),soleil1.getSoleilTotal());
-
-
-        primaryStage.setScene(new Scene(maison));
+        dessin.getChildren().addAll(deuxiemePartieDuDessin,maison1.getMaisonFinal(),soleil1.getSoleilTotal());
+        primaryStage.setScene(new Scene(dessin));
 
         primaryStage.getScene().setFill(Color.LIGHTGREY);
 
